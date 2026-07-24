@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "751764116522",
+    "project_id": "auto-parts-market-place-20312",
+    "storage_bucket": "auto-parts-market-place-20312.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:751764116522:android:f4705ee3aed7aa197adf53",
+        "android_client_info": {
+          "package_name": "com.autoparts.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "751764116522-gr59kobj3c3i1hsgr5hiumauk5otr5sq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTfivYbxE7PDB7FxyAlJjFDid6LKPplx8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "751764116522-gr59kobj3c3i1hsgr5hiumauk5otr5sq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

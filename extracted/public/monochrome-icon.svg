@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Monochrome Shield with Bearing & Car Silhouette -->
+  <path d="M 256 32 C 360 32, 440 52, 460 76 C 460 270, 410 420, 256 480 C 102 420, 52 270, 52 76 C 72 52, 152 32, 256 32 Z" fill="none" stroke="#FFFFFF" stroke-width="16" stroke-linejoin="round"/>
+  <circle cx="256" cy="230" r="82" fill="none" stroke="#FFFFFF" stroke-width="6"/>
+  <path d="M 170 238 C 185 236, 212 230, 230 190 C 242 162, 270 162, 282 190 C 300 230, 327 236, 342 238 C 328 238, 310 238, 296 215 C 282 195, 268 188, 256 188 C 244 188, 230 195, 216 215 C 202 238, 184 238, 170 238 Z" fill="#FFFFFF"/>
+  <path d="M 160 252 Q 256 238 352 252 Q 256 260 160 252 Z" fill="#FFFFFF"/>
+  <path d="M 195 410 L 242 305 L 250 305 L 215 410 Z" fill="#FFFFFF"/>
+  <path d="M 317 410 L 270 305 L 262 305 L 297 410 Z" fill="#FFFFFF"/>
+</svg>

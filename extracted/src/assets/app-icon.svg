@@ -1,0 +1,18 @@
+
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Dynamic Tri-Chevron Delta Node -->
+  <!-- Top Spark Diamond - Metallic Silver -->
+  <path d="M 512 172 L 548 212 L 512 252 L 476 212 Z" fill="#CBD5E1"/>
+
+  <!-- Primary Outer Chevron - Royal Blue -->
+  <path d="M 512 222 L 812 562 L 712 562 L 512 332 L 312 562 L 212 562 Z" fill="#2563EB"/>
+
+  <!-- Secondary Mid Chevron - Royal Blue Dark -->
+  <path d="M 512 372 L 732 632 L 642 632 L 512 462 L 382 632 L 292 632 Z" fill="#1D4ED8"/>
+
+  <!-- Core Apex Chevron - Pure White -->
+  <path d="M 512 502 L 652 682 L 572 682 L 512 592 L 452 682 L 372 682 Z" fill="#FFFFFF"/>
+
+  <!-- Bottom Anchor Node - Metallic Silver -->
+  <circle cx="512" cy="742" r="28" fill="#CBD5E1"/>
+</svg>

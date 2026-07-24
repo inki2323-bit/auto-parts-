@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", "Poppins", system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans", "Poppins", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* Primary Royal Blue Palette (#2563EB) */
+  --color-brand-primary: #2563EB;
+  --color-brand-primary-dark: #1D4ED8;
+  --color-brand-primary-light: #3B82F6;
+  --color-brand-primary-container: #DBEAFE;
+
+  /* Secondary Slate Gray Palette (#475569) */
+  --color-brand-secondary: #475569;
+  --color-brand-secondary-dark: #334155;
+  --color-brand-secondary-light: #64748B;
+
+  /* Accent Emerald Green Palette (#10B981) */
+  --color-brand-accent: #10B981;
+  --color-brand-accent-hover: #059669;
+  --color-brand-accent-light: #D1FAE5;
+
+  /* Text & Surfaces */
+  --color-brand-bg: #FFFFFF;
+  --color-brand-surface: #F8FAFC;
+  --color-brand-border: #E2E8F0;
+  --color-brand-text-primary: #0F172A;
+  --color-brand-text-secondary: #64748B;
+
+  /* Feedback Colors */
+  --color-brand-success: #16A34A;
+  --color-brand-warning: #EAB308;
+  --color-brand-error: #DC2626;
+}
+
+/* Material Symbols Rounded Helper */
+.material-symbols-rounded {
+  font-family: 'Material Symbols Rounded', sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: 'liga';
+}
+
+/* Custom Typography & Anti-aliasing */
+* {
+  font-family: "Plus Jakarta Sans", "Poppins", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, .font-display {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 800;
+}
+
+/* Material Design 3 Cards, Elevation & Soft Shadows */
+.card-elevation-1 {
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 1px 3px 0 rgba(37, 99, 235, 0.05), 0 1px 2px -1px rgba(37, 99, 235, 0.03);
+  border-radius: 16px;
+}
+
+.card-elevation-2 {
+  background-color: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  box-shadow: 0 4px 14px -2px rgba(37, 99, 235, 0.08), 0 2px 4px -1px rgba(37, 99, 235, 0.03);
+  border-radius: 20px;
+}
+
+.card-elevation-dark {
+  background: #0F172A;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 6px 18px -3px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+}
+
+.glass-nav {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.primary-gradient {
+  background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 60%, #1E40AF 100%);
+}
+
+.emerald-gradient {
+  background: linear-gradient(135deg, #34D399 0%, #10B981 50%, #059669 100%);
+}
+
+.slate-gradient {
+  background: linear-gradient(135deg, #64748B 0%, #475569 50%, #334155 100%);
+}
+
+.metallic-badge {
+  background: linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 100%);
+  border: 1px solid #CBD5E1;
+}
+
+.text-gradient-blue {
+  background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-emerald {
+  background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

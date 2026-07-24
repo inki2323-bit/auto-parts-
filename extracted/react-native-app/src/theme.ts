@@ -1,0 +1,30 @@
+import { MD3LightTheme as DefaultTheme } from 'react-native-paper';
+
+export const theme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: '#2563EB',
+    onPrimary: '#FFFFFF',
+    primaryContainer: '#DBEAFE',
+    onPrimaryContainer: '#1E40AF',
+    secondary: '#475569',
+    onSecondary: '#FFFFFF',
+    secondaryContainer: '#F1F5F9',
+    onSecondaryContainer: '#0F172A',
+    tertiary: '#10B981',
+    onTertiary: '#FFFFFF',
+    tertiaryContainer: '#D1FAE5',
+    onTertiaryContainer: '#065F46',
+    surface: '#F8FAFC',
+    onSurface: '#0F172A',
+    surfaceVariant: '#FFFFFF',
+    onSurfaceVariant: '#64748B',
+    outline: '#E2E8F0',
+    background: '#FFFFFF',
+    onBackground: '#0F172A',
+    error: '#DC2626',
+    onError: '#FFFFFF',
+  },
+  roundness: 16,
+};
