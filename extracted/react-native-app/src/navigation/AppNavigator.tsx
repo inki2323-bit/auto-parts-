@@ -129,7 +129,7 @@ export function AppNavigator() {
       <Stack.Navigator 
         initialRouteName={initialRoute}
         screenOptions={{ 
-          headerBackTitleVisible: false,
+          headerBackTitle: '',
           animation: 'fade',
         }}
       >

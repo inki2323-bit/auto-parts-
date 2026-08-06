@@ -10,6 +10,10 @@ import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.load
 import com.facebook.react.defaults.DefaultReactHost.getDefaultReactHost
 import com.facebook.react.defaults.DefaultReactNativeHost
 import com.facebook.soloader.SoLoader
+import io.invertase.firebase.app.ReactNativeFirebaseApp
+import io.invertase.firebase.analytics.ReactNativeFirebaseAnalytics
+import io.invertase.firebase.crashlytics.ReactNativeFirebaseCrashlytics
+import io.invertase.firebase.messaging.ReactNativeFirebaseMessaging
 
 class MainApplication : Application(), ReactApplication {
 
@@ -34,6 +38,10 @@ class MainApplication : Application(), ReactApplication {
   override fun onCreate() {
     super.onCreate()
     SoLoader.init(this, false)
+    ReactNativeFirebaseApp.initializeApp(this)
+    ReactNativeFirebaseMessaging.getInstance().setAutoInitEnabled(true)
+    ReactNativeFirebaseAnalytics.getInstance().setAnalyticsCollectionEnabled(true)
+    ReactNativeFirebaseCrashlytics.getInstance().setCrashlyticsCollectionEnabled(true)
     if (BuildConfig.IS_NEW_ARCHITECTURE_ENABLED) {
       load()
     }

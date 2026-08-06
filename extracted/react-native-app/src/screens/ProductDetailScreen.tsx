@@ -104,7 +104,7 @@ export function ProductDetailScreen({ route, navigation }: any) {
             <Card.Title
               title={part.contactName}
               subtitle={`Verified Seller • Member`}
-              left={(props) => <Avatar.Icon {...props} icon="account" backgroundColor={theme.colors.primaryContainer} />}
+              left={(props) => <Avatar.Icon {...props} icon="account" style={{ backgroundColor: theme.colors.primaryContainer }} />}
               right={(props) => (
                 <Button 
                   mode="text" 

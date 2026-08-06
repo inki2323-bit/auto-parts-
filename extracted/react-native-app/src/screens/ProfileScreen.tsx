@@ -76,7 +76,7 @@ export function ProfileScreen({ navigation }: any) {
       {/* Profile Header */}
       <Card mode="outlined" style={styles.profileCard}>
         <Card.Content style={styles.headerContent}>
-          <Avatar.Icon size={64} icon="account" backgroundColor={theme.colors.primaryContainer} />
+          <Avatar.Icon size={64} icon="account" style={{ backgroundColor: theme.colors.primaryContainer }} />
           <View style={styles.headerDetails}>
             <View style={styles.nameRow}>
               <Text variant="titleLarge" style={styles.userName}>{user.name}</Text>
@@ -106,7 +106,7 @@ export function ProfileScreen({ navigation }: any) {
         <Card.Title
           title="Auto Parts Android App v1.1.0"
           subtitle="Latest native Android build available"
-          left={(props) => <Avatar.Icon {...props} icon="cellphone-arrow-down" backgroundColor="#DCE2FF" iconColor="#0056D2" />}
+          left={(props) => <Avatar.Icon {...props} icon="cellphone-arrow-down" style={{ backgroundColor: '#DCE2FF' }} color="#0056D2" />}
         />
         <Card.Content>
           <Text variant="bodySmall" style={{ color: '#475569', marginBottom: 8 }}>

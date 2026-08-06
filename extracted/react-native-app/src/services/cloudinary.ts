@@ -1,3 +1,5 @@
+import { buildApiUrl, getCloudinaryConfig } from "./backendConfig";
+
 export interface CloudinaryUploadResult {
   secure_url: string;
   public_id: string;
@@ -45,8 +47,7 @@ export async function uploadImageToCloudinary(uriOrBase64: string): Promise<Clou
     throw new Error("No image data provided for Cloudinary upload.");
   }
 
-  const cloudName = "rqf1hlrx";
-  const uploadPreset = "autoparts_upload";
+  const { cloudName, uploadPreset } = getCloudinaryConfig();
   const url = `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`;
 
   try {
@@ -116,7 +117,7 @@ export async function deleteImagesFromCloudinary(publicIds: string[]): Promise<v
   if (validPublicIds.length === 0) return;
 
   try {
-    const response = await fetch("/api/delete-cloudinary-image", {
+    const response = await fetch(buildApiUrl("/api/delete-cloudinary-image"), {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

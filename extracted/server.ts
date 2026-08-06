@@ -108,6 +108,23 @@ async function startServer() {
     res.json({ status: "ok", mode: process.env.NODE_ENV });
   });
 
+  app.post("/api/announcements", (req, res) => {
+    const { message } = req.body || {};
+    if (!message || typeof message !== "string") {
+      return res.status(400).json({ error: "A non-empty announcement message is required." });
+    }
+
+    return res.json({ success: true, message, deliveredAt: new Date().toISOString() });
+  });
+
+  app.get("/api/admin/health", (req, res) => {
+    res.json({
+      status: "ok",
+      firebaseConfigured: Boolean(process.env.FIREBASE_PROJECT_ID || process.env.REACT_NATIVE_FIREBASE_PROJECT_ID),
+      cloudinaryConfigured: Boolean(process.env.CLOUDINARY_CLOUD_NAME && process.env.CLOUDINARY_API_SECRET),
+    });
+  });
+
   // Endpoint to download Debug APK
   app.get("/api/download/debug", (req, res) => {
     const filePath = path.join(process.cwd(), "app-debug.apk");

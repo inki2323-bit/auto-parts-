@@ -25,16 +25,9 @@ import {
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { SparePart, User, ChatRoom, ChatMessage, AppVersionConfig, SellerReview } from "../types";
 import { uploadImageToCloudinary, deleteImagesFromCloudinary, extractPublicId } from "./cloudinary";
+import { getFirebaseConfig, getApiBaseUrl } from "./backendConfig";
 
-// Production Firebase Configuration matching google-services.json
-const firebaseConfig = {
-  apiKey: "AIzaSyBTfivYbxE7PDB7FxyAlJjFDid6LKPplx8",
-  authDomain: "auto-parts-market-place-20312.firebaseapp.com",
-  projectId: "auto-parts-market-place-20312",
-  storageBucket: "auto-parts-market-place-20312.firebasestorage.app",
-  messagingSenderId: "751764116522",
-  appId: "1:751764116522:android:f4705ee3aed7aa197adf53"
-};
+const firebaseConfig = getFirebaseConfig();
 
 const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();
 export const auth = getAuth(app);
@@ -68,59 +61,6 @@ export function subscribeAuth(callback: (user: FirebaseUser | null) => void) {
   });
 }
 
-// Mock initial fallback parts
-export const MOCK_PARTS: SparePart[] = [
-  {
-    id: "part-1",
-    title: "Maruti Swift Brake Pads (Front)",
-    category: "Brakes & Suspension",
-    carBrand: "Maruti Suzuki",
-    carModel: "Swift",
-    year: 2021,
-    condition: "New",
-    price: 1850,
-    imageUrl: "https://images.unsplash.com/photo-1600706432520-2c1b82736209?w=600&auto=format&fit=crop",
-    imageUrls: ["https://images.unsplash.com/photo-1600706432520-2c1b82736209?w=600&auto=format&fit=crop"],
-    imagePublicIds: [],
-    description: "Original OEM Front Brake Pad Set for Maruti Swift (2018-2023). Brand new in box.",
-    location: "Mumbai, Maharashtra",
-    state: "Maharashtra",
-    district: "Mumbai",
-    contactName: "Rahul Sharma",
-    contactPhone: "+91 98765 43210",
-    sellerId: "seller-1",
-    sellerEmail: "rahul@autoparts.com",
-    approved: true,
-    verified: true,
-    featured: true,
-    createdAt: Date.now() - 3600000 * 5,
-  },
-  {
-    id: "part-2",
-    title: "Hyundai Creta LED Headlight Assembly (Right Side)",
-    category: "Headlights & Lighting",
-    carBrand: "Hyundai",
-    carModel: "Creta",
-    year: 2022,
-    condition: "Used - Like New",
-    price: 6500,
-    imageUrl: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=600&auto=format&fit=crop",
-    imageUrls: ["https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=600&auto=format&fit=crop"],
-    imagePublicIds: [],
-    description: "Genuine Hyundai Creta SX Projector LED headlight assembly. Tested and fully functional.",
-    location: "Bengaluru, Karnataka",
-    state: "Karnataka",
-    district: "Bengaluru",
-    contactName: "Anand Kumar",
-    contactPhone: "+91 91234 56789",
-    sellerId: "seller-2",
-    sellerEmail: "anand@creta.com",
-    approved: true,
-    verified: true,
-    createdAt: Date.now() - 3600000 * 24,
-  }
-];
-
 export async function fetchPartsList(): Promise<SparePart[]> {
   try {
     const querySnapshot = await getDocs(collection(db, "spare_parts"));
@@ -130,7 +70,17 @@ export async function fetchPartsList(): Promise<SparePart[]> {
   } catch (err) {
     console.log("Firestore fallback to local cache");
   }
-  return MOCK_PARTS;
+
+  const cached = await AsyncStorage.getItem("autoparts_cached_parts");
+  if (cached) {
+    try {
+      return JSON.parse(cached) as SparePart[];
+    } catch (e) {
+      console.warn("Failed to parse cached parts", e);
+    }
+  }
+
+  return [];
 }
 
 // Create Listing with mandatory Cloudinary upload & public_id tracking
@@ -166,10 +116,12 @@ export async function createSparePartListing(
     imageUrls: uploadedUrls,
     imagePublicIds: uploadedPublicIds,
     approved: true,
+    status: "approved",
     createdAt: Date.now(),
   };
 
   const docRef = await addDoc(collection(db, "spare_parts"), docData);
+  await AsyncStorage.setItem("autoparts_cached_parts", JSON.stringify([...(await AsyncStorage.getItem("autoparts_cached_parts") ? JSON.parse(await AsyncStorage.getItem("autoparts_cached_parts") as string) : []), { id: docRef.id, ...docData }]));
   return docRef.id;
 }
 

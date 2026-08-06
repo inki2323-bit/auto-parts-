@@ -5,8 +5,6 @@ module.exports = {
       sourceDir: './android',
       packageName: 'com.autoparts.app',
       appName: 'app',
-      applicationId: 'com.autoparts.app',
-      mainActivity: '.MainActivity',
       assets: [],
     },
   },
